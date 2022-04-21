@@ -4,6 +4,7 @@
       <router-link to="/home">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <!-- 总是显示 app -->
     <router-view/>
   </div>
 </template>
