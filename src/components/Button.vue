@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: 'ReactiveButton',
+  name: 'Button',
   props: {
     type: {
       type: String,

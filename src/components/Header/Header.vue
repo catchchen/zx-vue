@@ -1,5 +1,12 @@
 <template>
+
+<div>
   <transition name="showHeader">
+    header
+  </transition>
+</div>
+
+  <!-- <transition name="showHeader">
     <div v-if="visible" class="header-animat">
       <a-layout-header
         v-if="visible"
@@ -31,57 +38,57 @@
         </div>
       </a-layout-header>
     </div>
-  </transition>
+  </transition> -->
 </template>
 
 <script>
-import UserMenu from '../Tools/UserMenu'
-import SMenu from '../Menu/'
-import Logo from '../Tools/Logo'
+// import UserMenu from '../Tools/UserMenu'
+// import SMenu from '../Menu/'
+// import Logo from '../Tools/Logo'
 import { mixin } from '@/mixins/mixin'
 
 export default {
   name: 'GlobalHeader',
   components: {
-    UserMenu,
-    SMenu,
-    Logo
+    // UserMenu,
+    // SMenu,
+    // Logo
   },
   mixins: [mixin],
   props: {
-    mode: {
-      type: String,
-      // sidemenu, topmenu
-      default: 'sidemenu'
-    },
-    menus: {
-      type: Array,
-      required: true
-    },
-    theme: {
-      type: String,
-      required: false,
-      default: 'dark'
-    },
-    collapsed: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    device: {
-      type: String,
-      required: false,
-      default: 'desktop'
-    }
+    // mode: {
+    //   type: String,
+    //   // sidemenu, topmenu
+    //   default: 'sidemenu'
+    // },
+    // menus: {
+    //   type: Array,
+    //   required: true
+    // },
+    // theme: {
+    //   type: String,
+    //   required: false,
+    //   default: 'dark'
+    // },
+    // collapsed: {
+    //   type: Boolean,
+    //   required: false,
+    //   default: false
+    // },
+    // device: {
+    //   type: String,
+    //   required: false,
+    //   default: 'desktop'
+    // }
   },
   data() {
     return {
-      visible: true,
-      oldScrollTop: 0
+      // visible: true,
+      // oldScrollTop: 0
     }
   },
   mounted() {
-    document.addEventListener('scroll', this.handleScroll, { passive: true })
+    // document.addEventListener('scroll', this.handleScroll, { passive: true })
   },
   methods: {
     handleScroll() {

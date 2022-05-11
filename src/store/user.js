@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import { ACCESS_TOKEN, USER } from '@/store/mutation-types'
-import adminApi from '@/api/admin'
-import userApi from '@/api/user'
+import { ACCESS_TOKEN, USER } from '../store/mutation-type'
+// import adminApi from '@/api/admin'
+// import userApi from '@/api/user'
 
 const user = {
   state: {
@@ -23,83 +23,70 @@ const user = {
     }
   },
   actions: {
-    installCleanToken({ commit }, installData) {
-      return new Promise((resolve, reject) => {
-        adminApi
-          .install(installData)
-          .then(response => {
-            commit('CLEAR_TOKEN')
-            resolve(response)
-          })
-          .catch(error => {
-            reject(error)
-          })
-      })
-    },
-    refreshUserCache({ commit }) {
-      return new Promise((resolve, reject) => {
-        userApi
-          .getProfile()
-          .then(response => {
-            commit('SET_USER', response.data.data)
-            resolve(response)
-          })
-          .catch(error => {
-            reject(error)
-          })
-      })
-    },
-    login({ commit }, { username, password, authcode }) {
-      return new Promise((resolve, reject) => {
-        adminApi
-          .login(username, password, authcode)
-          .then(response => {
-            const token = response.data.data
-            Vue.$log.debug('Got token', token)
-            commit('SET_TOKEN', token)
+    // installCleanToken({ commit }, installData) {
+    //   return new Promise((resolve, reject) => {
+    //     adminApi
+    //       .install(installData)
+    //       .then(response => {
+    //         commit('CLEAR_TOKEN')
+    //         resolve(response)
+    //       })
+    //       .catch(error => {
+    //         reject(error)
+    //       })
+    //   })
+    // },
+    // login({ commit }, { username, password }) {
+    //   return new Promise((resolve, reject) => {
+    //     adminApi
+    //       .login(username, password)
+    //       .then(response => {
+    //         const token = response.data.data
+    //         Vue.$log.debug('Got token', token)
+    //         commit('SET_TOKEN', token)
 
-            resolve(response)
-          })
-          .catch(error => {
-            reject(error)
-          })
-      })
-    },
-    logout({ commit }) {
-      return new Promise(resolve => {
-        adminApi
-          .logout()
-          .then(() => {
-            commit('CLEAR_TOKEN')
-            resolve()
-          })
-          .catch(() => {
-            resolve()
-          })
-      })
-    },
-    refreshToken({ commit }, refreshToken) {
-      return new Promise((resolve, reject) => {
-        adminApi
-          .refreshToken(refreshToken)
-          .then(response => {
-            const token = response.data.data
-            Vue.$log.debug('Got token', token)
-            commit('SET_TOKEN', token)
+    //         resolve(response)
+    //       })
+    //       .catch(error => {
+    //         reject(error)
+    //       })
+    //   })
+    // },
+    // logout({ commit }) {
+    //   return new Promise(resolve => {
+    //     adminApi
+    //       .logout()
+    //       .then(() => {
+    //         commit('CLEAR_TOKEN')
+    //         resolve()
+    //       })
+    //       .catch(() => {
+    //         resolve()
+    //       })
+    //   })
+    // },
+    // refreshToken({ commit }, refreshToken) {
+    //   return new Promise((resolve, reject) => {
+    //     adminApi
+    //       .refreshToken(refreshToken)
+    //       .then(response => {
+    //         const token = response.data.data
+    //         Vue.$log.debug('Got token', token)
+    //         commit('SET_TOKEN', token)
 
-            resolve(response)
-          })
-          .catch(error => {
-            const data = error.response.data
-            Vue.$log.debug('Refresh error data', data)
-            if (data && data.status === 400 && data.data === refreshToken) {
-              // The refresh token expired
-              commit('CLEAR_TOKEN')
-            }
-            reject(error)
-          })
-      })
-    }
+    //         resolve(response)
+    //       })
+    //       .catch(error => {
+    //         const data = error.response.data
+    //         Vue.$log.debug('Refresh error data', data)
+    //         if (data && data.status === 400 && data.data === refreshToken) {
+    //           // The refresh token expired
+    //           commit('CLEAR_TOKEN')
+    //         }
+    //         reject(error)
+    //       })
+    //   })
+    // }
   }
 }
 

@@ -1,5 +1,5 @@
 const getters = {
-  // device: state => state.app.device,
+  device: state => state.app.device,
   // theme: state => state.app.theme,
   // color: state => state.app.color,
   layoutSetting: state => state.app.layoutSetting,
