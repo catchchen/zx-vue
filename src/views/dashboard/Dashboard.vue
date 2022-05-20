@@ -1,7 +1,7 @@
 <template>
 <div>
   <!-- <page-view>
-    
+
   </page-view> -->
   <h2>DashBoard</h2>
     <div class="dashboard-text">name:{{ name }}</div>
@@ -22,7 +22,7 @@
 // import statisticsApi from '@/api/statistics'
 export default {
   name: 'Dashboard',
-  beforeMount() {
+  beforeMount () {
     // this.handleLoadStatistics()
     // this.handleListLatestPosts()
     // this.handleListLatestLogs()
@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       name: 'main',
-      roles: [1,2,3,4,5]
+      roles: [1, 2, 3, 4, 5]
     }
   },
   components: {
@@ -68,7 +68,7 @@ export default {
   //   next()
   },
   methods: {
-    handleListLatestPosts() {
+    handleListLatestPosts () {
       this.activityLoading = true
       // postApi
       //   .listLatest(5)
@@ -81,7 +81,7 @@ export default {
       //     }, 200)
       //   })
     },
-    handleListLatestLogs() {
+    handleListLatestLogs () {
       this.logLoading = true
       // logApi
       //   .listLatest(5)
@@ -94,7 +94,7 @@ export default {
       //     }, 200)
       //   })
     },
-    handleLoadStatistics() {
+    handleLoadStatistics () {
       // statisticsApi
       //   .statistics()
       //   .then(response => {
@@ -109,8 +109,8 @@ export default {
       //     }, 200)
       //   })
     },
-    //postId
-    handlePostPreview() {
+    // postId
+    handlePostPreview () {
       // postApi.preview(postId).then(response => {
       //   window.open(response.data, '_blank')
       // })

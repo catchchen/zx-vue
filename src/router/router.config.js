@@ -1,8 +1,7 @@
-import { Layout, BlankLayout } from "../layouts";
+/** import { Layout, BlankLayout } from "../layouts";
 
-/**
  * 基础路由
- */
+
 export const constantRouterMap = [
   // {
   //   path: '/login',
@@ -22,9 +21,9 @@ export const constantRouterMap = [
     component: () => import('@/views/exception/404')
   }
 ]
-  /**
-   * 动态路由
-   */
+
+动态路由
+
 export const asyncRouterMap = [
   {
     path: '/',
@@ -123,3 +122,4 @@ export const asyncRouterMap = [
   //   hidden: true
   // }
 ]
+*/
